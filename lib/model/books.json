@@ -1,0 +1,16 @@
+[
+  {
+    "id": "b1",
+    "title": "Harry Potter e a Pedra Filosofal",
+    "author": "J.K. Rowling",
+    "dateOfRelease": "1997-06-01T00:00:00.000",
+    "marked": false
+  },
+  {
+    "id": "b2",
+    "title": "Harry Potter e a Câmara Secreta",
+    "author": "J.K. Rowling",
+    "dateOfRelease": "1998-07-01T00:00:00.000",
+    "marked": false
+  }
+]

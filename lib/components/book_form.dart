@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BookForm extends StatelessWidget {
+  final date = DateTime.now();
+
   final titleController = TextEditingController(),
       authorController = TextEditingController();
 
@@ -14,7 +16,6 @@ class BookForm extends StatelessWidget {
   _submitForm() {
     final title = titleController.text;
     final author = titleController.text;
-    final date = DateTime.now();
 
     if (title.isEmpty || author.isEmpty) {
       return;
@@ -35,7 +36,7 @@ class BookForm extends StatelessWidget {
               controller: titleController,
               onFieldSubmitted: (_) => _submitForm(),
               decoration: const InputDecoration(
-                hintText: 'Titulo',
+                hintText: 'Título',
               ),
             ),
             TextFormField(
@@ -45,8 +46,22 @@ class BookForm extends StatelessWidget {
                 hintText: 'Autor',
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: TextButton(
+                onPressed: () {
+                  final title = titleController.text;
+                  final value = authorController.text;
+
+                  onSubmit(title, value, date);
+                },
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(15),
+                  backgroundColor: Colors.purple,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Text('Novo Livro'),
+              ),
             ),
           ],
         ),

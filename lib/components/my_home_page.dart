@@ -9,10 +9,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _addBook() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +29,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BookCard(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _addBook,
-        child: const Icon(Icons.book),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _addBook,
+      //   child: const Icon(Icons.book),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -33,7 +33,7 @@ class BookList extends StatelessWidget {
                     )),
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Teste',
+                      'Livro',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
