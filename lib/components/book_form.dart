@@ -26,42 +26,48 @@ class BookForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var titleFormField = TextFormField(
+      controller: titleController,
+      onFieldSubmitted: (_) => _submitForm(),
+      decoration: const InputDecoration(
+        hintText: 'Título',
+      ),
+    );
+
+    var authorFormField = TextFormField(
+      controller: authorController,
+      onFieldSubmitted: (_) => _submitForm(),
+      decoration: const InputDecoration(
+        hintText: 'Autor',
+      ),
+    );
+
+    var textButton = TextButton(
+      onPressed: () {
+        final title = titleController.text;
+        final value = authorController.text;
+
+        onSubmit(title, value, date);
+      },
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.all(15),
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+      ),
+      child: const Text('Novo Livro'),
+    );
+
     return Card(
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            TextFormField(
-              controller: titleController,
-              onFieldSubmitted: (_) => _submitForm(),
-              decoration: const InputDecoration(
-                hintText: 'Título',
-              ),
-            ),
-            TextFormField(
-              controller: authorController,
-              onFieldSubmitted: (_) => _submitForm(),
-              decoration: const InputDecoration(
-                hintText: 'Autor',
-              ),
-            ),
+            titleFormField,
+            authorFormField,
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: TextButton(
-                onPressed: () {
-                  final title = titleController.text;
-                  final value = authorController.text;
-
-                  onSubmit(title, value, date);
-                },
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(15),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text('Novo Livro'),
-              ),
+              child: textButton,
             ),
           ],
         ),

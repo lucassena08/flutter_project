@@ -11,28 +11,29 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const SizedBox(
-          width: double.infinity,
-          child: Text(
-            'Catálogo de Livros',
-            textAlign: TextAlign.center,
-          ),
+    var appBar = AppBar(
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      title: const SizedBox(
+        width: double.infinity,
+        child: Text(
+          'Catálogo de Livros',
+          textAlign: TextAlign.center,
         ),
       ),
-      body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          SizedBox(),
-          BookCard(),
-        ],
-      ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _addBook,
-      //   child: const Icon(Icons.book),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+
+    const column = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        SizedBox(),
+        BookCard(),
+      ],
+    );
+
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: appBar,
+      body: column,
     );
   }
 }
